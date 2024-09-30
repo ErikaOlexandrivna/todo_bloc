@@ -41,11 +41,20 @@ class TodoPage extends StatelessWidget {
                     final tasks = state.tasks;
                     return ListView.builder(
                         itemCount: tasks.length,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text(tasks[index]),
-                          );
-                        });
+                        itemBuilder: (context, index)
+                    {
+                      return ListTile(
+                        title: Text(tasks[index]),
+                        trailing: IconButton(
+                            icon: const Icon(Icons.delete),
+                            onPressed: () {
+                              context.read<TodoBloc>().add(
+                                  RemoveTodo(tasks[index]));
+                            }
+                        ),
+                      );
+                    },
+                    );
                   } else {
                     return const Center(
                       child: Text('задач нема!\nСтвори нову задачу'),
