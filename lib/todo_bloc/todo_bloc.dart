@@ -3,7 +3,7 @@ import 'package:todo_bloc/todo_bloc/todo_event.dart';
 import 'package:todo_bloc/todo_bloc/totdo_state.dart';
 
 class TodoBloc extends Bloc<TodoEvent, TodoState> {
-  TodoBloc() : super(const TodoInitial()) {
+  TodoBloc() : super(const TodoInitial())
     on<AddTodo>(_onAddTodo);
     on<RemoveTodo>(_onRemoveTodo);
   }
