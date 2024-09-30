@@ -11,7 +11,6 @@ class TodoInitial extends TodoState {
   const TodoInitial();
 }
 
-
 class TodoLoaded extends TodoState {
   final List<String> tasks;
 
@@ -20,6 +19,7 @@ class TodoLoaded extends TodoState {
   @override
   List<Object?> get props => [tasks];
 }
+
 class TodoError extends TodoState {
   final String message;
 

@@ -13,10 +13,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      home: BlocProvider(
-        create:(context) => TodoBloc(),
-        child: TodoPage(),
-      )
-    );
+        home: BlocProvider(
+      create: (context) => TodoBloc(),
+      child: TodoPage(),
+    ));
   }
 }

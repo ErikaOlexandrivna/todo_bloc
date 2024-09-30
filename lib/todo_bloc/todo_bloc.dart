@@ -19,9 +19,8 @@ class TodoBloc extends Bloc<TodoEvent, TodoState> {
     }
   }
 
-    void _onRemoveTodo(RemoveTodo event, Emitter<TodoState> emit) {
-      _tasks.remove(event.task);
-      emit(TodoLoaded(List.from(_tasks)));
-    }
+  void _onRemoveTodo(RemoveTodo event, Emitter<TodoState> emit) {
+    _tasks.remove(event.task);
+    emit(TodoLoaded(List.from(_tasks)));
   }
-
+}
