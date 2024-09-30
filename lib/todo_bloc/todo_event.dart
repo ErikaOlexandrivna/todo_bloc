@@ -13,3 +13,12 @@ class AddTodo extends TodoEvent {
   @override
   List<Object?> get props => [task];
 }
+
+class RemoveTodo extends TodoEvent {
+  final String task;
+
+  RemoveTodo(this.task);
+
+  @override
+  List<Object?> get props => [task];
+}

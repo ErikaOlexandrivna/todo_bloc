@@ -26,10 +26,12 @@ class TodoPage extends StatelessWidget {
                 suffixIcon: IconButton(
                   icon: const Icon(Icons.add_circle),
                   onPressed: () {
-                   if (_taskController.text.isNotEmpty) {
-                     context.read<TodoBloc>().add(AddTodo(_taskController.text));
-                     _taskController.clear();
-                   }
+                    if (_taskController.text.isNotEmpty) {
+                      context
+                          .read<TodoBloc>()
+                          .add(AddTodo(_taskController.text));
+                      _taskController.clear();
+                    }
                   },
                 ),
               ),
@@ -40,12 +42,20 @@ class TodoPage extends StatelessWidget {
                   if (state is TodoLoaded) {
                     final tasks = state.tasks;
                     return ListView.builder(
-                        itemCount: tasks.length,
-                        itemBuilder: (context, index) {
-                          return ListTile(
-                            title: Text(tasks[index]),
-                          );
-                        });
+                      itemCount: tasks.length,
+                      itemBuilder: (context, index) {
+                        return ListTile(
+                          title: Text(tasks[index]),
+                          trailing: IconButton(
+                              icon: const Icon(Icons.delete),
+                              onPressed: () {
+                                context
+                                    .read<TodoBloc>()
+                                    .add(RemoveTodo(tasks[index]));
+                              }),
+                        );
+                      },
+                    );
                   } else {
                     return const Center(
                       child: Text('задач нема!\nСтвори нову задачу'),
